@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name : stg_olists__orders
+    description : "Commandes nettoyées, 1 ligne par commande"
+    columns :
+      - name : order_id
+        tests : ["unique", "not_null"]
+
+      - name : customer_id
+        tests : 
+          - not_null
+          - relationships:
+              to: ref('stg_olists__customers')
+              field: customer_id
+
+      - name : order_status
+        tests :
+          - accepted_values:
+              values: ['delivered', 'shipped', 'invoiced', 'processing', 'unavailable', 'canceled', 'approved', 'created']
+
+  - name : stg_olists__order_items
+    columns :
+      - name : order_id
+        tests : 
+          - not_null
+          - relationships:
+              to: ref('stg_olists__orders')
+              field: order_id
+
+      - name : product_id
+        tests : [not_null]
+
+  - name : stg_olists__customers
+    columns :
+      - name : customer_id
+        tests : ["unique", "not_null"]
+
+      - name : customer_unique_id
+        tests : ["not_null"]
+
+  - name : stg_olists__products
+    columns :
+      - name : product_id
+        tests : ["unique", "not_null"]
+
+  - name : stg_olists__order_reviews
+    columns :
+      - name : review_score
+        tests :
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+              quote: false
+

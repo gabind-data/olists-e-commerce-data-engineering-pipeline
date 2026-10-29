@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: olist_raw
+    description: "Données brutes olist"
+    database: OLISTS 
+    schema: RAW 
+    tables: 
+      - name: olists_customers
+        description: "Olists Customers Table"
+        columns:
+          - name: customer_id
+            tests: ["unique", "not_null"]
+
+      - name: olists_geolocation
+        description: "Olists Geolocation Table"
+
+      - name: olists_orders
+        description: "Olists Orders Table"
+        columns:
+          - name : order_id
+            tests: ["unique","not_null"]
+          - name : customer_id
+            tests: ["not_null"]
+
+      - name: olists_order_items
+        description: "Olists Orders items Table"
+        columns:
+          - name : order_id
+            tests: ["not_null"]
+          - name : product_id
+            tests: ["not_null"]
+
+      - name: olists_order_payments
+        description: "Olists Orders payments Table"
+
+      - name: olists_order_reviews
+        description: "Olists Orders reviews Table"
+
+      - name: olists_products
+        description: "Olists Products Table"
+        columns:
+          - name: product_id
+            tests: ["unique","not_null"]
+
+      - name: olists_sellers
+        description: "Olists Sellers Table"
+        columns: 
+          - name: seller_id
+            tests: ["unique", "not_null"]

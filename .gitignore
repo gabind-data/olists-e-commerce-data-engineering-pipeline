@@ -1,0 +1,37 @@
+
+# =========================
+# DBT
+# =========================
+
+target/
+dbt_packages/
+dbt_internal_packages/
+logs/
+
+# =========================
+# PYTHON
+# =========================
+
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# =========================
+# SECRETS ET CONFIGURATION
+# =========================
+
+.env
+.env.*
+!.env.example
+profiles.yml
+profiles.yaml
+*.pem
+*.p8
+
+# =========================
+# FICHIERS SYSTEME
+# =========================
+
+.DS_Store
+Thumbs.db
