@@ -195,4 +195,4 @@ Personal Data Engineering portfolio project.
 
 ## dbt Model Lineage
 
-![dbt_DAG](olists_analytics/docs/images/olists_dag.png)
+![dbt_DAG](docs/images/olists_dag.png)
